@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trip in Southern Fujian</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/knockout-3.4.2.js"></script>
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- 左侧控制栏-->
+      <div class="options-box">
+        <h1>Trip in Southern Fujian</h1>
+        <!-- 输入框搜索-->
+        <span class="title">Search your tourist attraction</span>
+        <input id="places-search" type="text" placeholder="Ex: Xiamen Zhongshan Road" >
+        <input id="go-places" type="button" value="Go" data-bind="click: textSearchPlaces">
+        <hr>
+        <!-- 切换城市后，会对列表进行筛选，并在地图上重新标记 -->
+        <span class="title"> Hot of</span>
+        <select class="title" id="select-city" data-bind="event:{change:changeMarker}">
+          <option value="Southern Fujian" selected="selected">Southern Fujian</option>
+          <option value="Xiamen">Xiamen</option>
+          <option value="Zhangzhou">Zhangzhou</option>
+          <option value="Quanzhou">Quanzhou</option>
+        </select>
+        <ul data-bind="foreach: xmHotList, visible:xmItem">
+          <li class="text city-list" data-bind="text:name,click:$parent.showClickMarker"></li>
+        </ul>
+        <ul data-bind="foreach: zzHotList, visible:zzItem">
+          <li class="text city-list" data-bind="text:name,click:$parent.showClickMarker"></li>
+        </ul>
+        <ul data-bind="foreach: qzHotList, visible:qzItem">
+          <li class="text city-list" data-bind="text:name,click:$parent.showClickMarker"></li>
+        </ul>
+        <hr>
+        <!-- 维基百科查询显示区域 -->
+        <span class="title">Relevant Wikipedia Links</span>
+        <br>
+        <span class="text">choosea city above and find articles here!</span>
+        <ul class="text" id="wikipedia-links" data-bind="foreach:link">
+          <li class="text wiki-list">
+            <a data-bind="attr: { href: name}, text: titles "></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 右侧地图显示 -->
+      <div id="map"></div>
+
+    </div>
+
+    <!-- 引入Google地图,同时加入“onerror”属性提示错误-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyC0_-Hk40xu4c49EztZyPU_xySedPBEYEE&v=3&v=3&callback=initMap" onerror="mapErrorHandler()">
+    </script>
+    <!-- 引入jquery用于AJAX操作 -->
+    <script async defer src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

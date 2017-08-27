@@ -1,0 +1,101 @@
+html,
+body
+{
+    font-family: Arial, sans-serif;
+
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container
+{
+    position: relative;
+
+    height: 100%;
+}
+
+.options-box
+{
+    line-height: 35px;
+
+    overflow-y: scroll;
+
+    width: 340px;
+    height: 100%;
+    padding: 10px 10px 30px 10px;
+
+    text-align: left;
+
+    border: 1px solid #999;
+    border-radius: 3px;
+    background: #fff;
+}
+
+#places-search
+{
+    width: 84%;
+}
+
+.title
+{
+    font-size: 16px;
+
+    color: #525454;
+}
+
+.text
+{
+    font-size: 12px;
+}
+
+input
+{
+    font-size: 12px;
+}
+
+h1
+{
+    font-size: 20px;
+
+    margin: 0 0 10px 0;
+
+    text-align: center;
+
+    color: #525454;
+}
+
+hr
+{
+    height: 1px;
+    margin: 20px 0 20px 0;
+
+    border: none;
+    background: #d0d7d9;
+}
+
+.city-list
+{
+    cursor: pointer;
+}
+
+.city-list:hover,
+a:hover
+{
+    color: red;
+}
+
+.wiki-list
+{
+    list-style-type: none;
+}
+
+#map
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 362px;
+
+    height: 100%;
+}
