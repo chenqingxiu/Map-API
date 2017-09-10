@@ -228,7 +228,6 @@ function getPlacesDetails(marker, infowindow) {
           innerHTML += '</div>';
           infowindow.setContent(innerHTML);
           infowindow.open(map, marker);
-          // Make sure the marker property is cleared if the infowindow is closed.
           infowindow.addListener('closeclick', function() {
             infowindow.marker = null;
           });
@@ -287,7 +286,7 @@ function wikiFun(){
   wikiElem.innerHTML = "";
   var cityStr = selectCity.options[selectCity.selectedIndex].value;
   var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + cityStr + '&format=json&callback=wikiCallback';
-  // 数据出错时出现提示"failed to get wikipedia resources"
+  // 数据出错时出现提示s
   var wikiRequestTimeout = setTimeout(function(){
     alert("failed to get wikipedia resources");
   }, 10000);
@@ -295,7 +294,6 @@ function wikiFun(){
   $.ajax({
     url:wikiUrl,
     dataType:"jsonp",
-    //jsonp:"callback",
     success:function(response){
       var articleList = response[1];
       wikiArray = [];
