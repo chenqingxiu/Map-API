@@ -1,4 +1,4 @@
-//....................View开始...................
+//....................View...................
 var map;
 var markers = [];
 var placeMarkers = [];
@@ -49,7 +49,7 @@ function initMap() {
     marker.addListener('click', function() {
       populateInfoWindow(this, largeInfowindow);
     });
-    // 实现鼠标移进移出时变换标记颜色
+    // 鼠标移进移出时变换标记颜色
     marker.addListener('mouseover', function() {
       this.setIcon(highlightedIcon);
     });
@@ -58,7 +58,7 @@ function initMap() {
     });
   }
 
-  // 默认显示所有标记
+  // 显示所有标记
   showListings();
 
   // 创建信息窗口
@@ -70,7 +70,7 @@ function initMap() {
   searchBox.setBounds(map.getBounds());
 }
 
-// 无法加载Google Map时提示错误
+// 无法加载时提示错误
 function mapErrorHandler(){
   alert("failed to get google map");
 }
@@ -84,7 +84,7 @@ function populateInfoWindow(marker, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
     });
-    // 设置点击标记的窗口内容
+    // 设置点击标记时的窗口内容
     infowindow.setContent('<div>' + marker.title + '</div>' +
           '<div>' + marker.address + '</div>');
     infowindow.open(map, marker);
@@ -96,7 +96,7 @@ function showListings() {
   var bounds = new google.maps.LatLngBounds();
   var starItem;
   var endItem;
-//根据不同城市显示不同标记
+//根据不同城市显示标记
   switch(selectCity.selectedIndex){
     case 0:
     starItem = 0;
@@ -121,14 +121,14 @@ function showListings() {
   map.fitBounds(bounds);
 }
 
-// 在地图上隐藏标记
+// 隐藏标记
 function hideMarkers(markers) {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null);
   }
 };
 
-// 定义地图标记样式
+// 定义标记样式
 function makeMarkerIcon(markerColor) {
   var markerImage = new google.maps.MarkerImage(
     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
@@ -140,7 +140,7 @@ function makeMarkerIcon(markerColor) {
   return markerImage;
 }
 
-// 点击"go"按钮执行搜索
+// 点击"go"执行搜索
 function textSearchPlaces() {
   var bounds = map.getBounds();
   hideMarkers(markers);
@@ -241,7 +241,7 @@ var wikiElem = document.getElementById('wikipedia-links');
 var wikiArray = [];
 
 var viewModel = ({
-// 建立各城市热点城市列表
+// 建立各城市热点列表
   xmHotList: [
     {name:'厦大白城', id:0},
     {name:'鼓浪屿', id:1},
